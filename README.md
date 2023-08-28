@@ -30,6 +30,9 @@ The following software must be installed to run the system:
     
 # Installation
 Visit the following documentation for a more detailed overview on installation and use:
+
 https://reactnative.dev/
+
 https://reactnavigation.org/
+
 https://docs.expo.dev/
