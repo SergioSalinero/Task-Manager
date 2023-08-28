@@ -7,40 +7,29 @@ Simple application to manage daily tasks
     Features
     Requirements
     Installation
-    Usage
     
 
 # Description
-The developed project offers a physical exercise platform based on PoseNet technology. Its function is to estimate the user's pose accurately and in real-time through the use of a recording device, allowing to show the correct performance of the exercise in question, avoiding physical discomfort and enhancing its evolution, as well as the collection of data and the calculation of statistics of interest to the user.
+Simple personal task management application for mobile devices.
 
-The platform offers services for building and planning physical exercise routines, visualizing statistics of the activity performed, and sharing routines in a public and organized way through independent training rooms, expanding the limits of its usefulness by connecting trainers and specialists directly with the user through training routines.
+The functionality is based on adding, deleting and modifying tasks. A brief user management (CRUD) is performed.
 
 # Features
-The project was developed with Node.js technology and some of its associated frameworks such as Express.js.
-The front-end development was done with HTML, CSS and JavaScript.
-
-The project has a server that manages the database services and front-end requests.
+The project has been done with React Native 0.72.
+Firebase has been used as the database as well as its FireStore and Authentication functionalities.
 
 # Requirements
 The following software must be installed to run the system:
 
     Node.js
-    npm
-    firebase
-    ML5.js
-    P5.js
+    NPM
+    React Native
+    React Navigation
+    Expo
+    Firebase
     
 # Installation
-To complete the installation, run the following command in the root directory:
-
-    npm install
-
-This will install all Node.js dependencies.
-
-# Usage
-To launch the system, the following command must be executed at directorio raíz:
-
-    node apiREST.js
-Once this is done, the system can be accessed through the URL:
-
-    http://localhost:3000/
+Visit the following documentation for a more detailed overview on installation and use:
+https://reactnative.dev/
+https://reactnavigation.org/
+https://docs.expo.dev/
