@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Gestor Tareas",
+    "slug": "GestorTareas",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./images/icono.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./images/tareas.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./images/icono.png",
+        "backgroundColor": "#2896ff"
+      },
+      "package": "com.sergiosalinero.GestorTareas"
+    },
+    "web": {
+      "favicon": "./images/icono.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "85027fa9-f78c-4807-b19e-2b26fb215102"
+      }
+    }
+  }
+}
