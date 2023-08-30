@@ -1,4 +1,4 @@
-// Login.js file is dedicated to manage user login. Login is necessary to differentiate users in database.
+// PasswordRecovery.js file is dedicated to manage user password change.
 
 // React imports.
 import React, { useEffect, useState } from 'react';
@@ -9,64 +9,44 @@ import {
     View,
     TextInput,
     TouchableOpacity,
-    Image
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // Firebase imports.
 import {
     auth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
+    sendPasswordResetEmail
 } from '../FirebaseCredentials';
 
 
-function Login() {
+function PasswordRecovery() {
 
     // Set email and user password.
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     // Initialize screens navigation component (react-navigation).
     const navigation = useNavigation();
 
-    // When component is rendered, useEffect is run once.
-    useEffect(() => {
-        // If the authentication status changes, it means that user is logged in the system.
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navigation.replace('Lobby');
-            }
-        });
 
-        return unsubscribe;
-    }, []);
-
-    const handleSignup = () => {
-        navigation.replace('Signup');
-    };
-
-    const handleLogin = () => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
+    const handleEmailSending = () => {
+        console.log(email);
+        sendPasswordResetEmail(auth, email)
+            .then(() => { console.log('Hecho');
             })
             .catch((error) => {
-                alert(error.message);
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
             });
     };
 
-    const handlePasswordRecovery = () => {
-        navigation.replace('PasswordRecovery');
+    const handleLoginBack = () => {
+        navigation.replace('Login');
     };
 
     return (
         <View style={styles.container} behavior='padding'>
-            <Image 
-                source={require('../images/tareas.png')}
-                style={{width: 200, height: 200, marginBottom: 100, marginTop: 50}}
-            />
-
+            
             <View style={styles.inputContainer}>
 
                 <TextInput
@@ -75,36 +55,23 @@ function Login() {
                     onChangeText={text => setEmail(text)}
                     style={styles.input}
                 />
-                <TextInput
-                    placeholder='Password'
-                    value={password}
-                    onChangeText={text => setPassword(text)}
-                    style={styles.input}
-                    secureTextEntry
-                />
             </View>
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={handleLogin}
+                    onPress={handleEmailSending}
                     style={styles.button}
                 >
-                    <Text style={styles.buttonText}>Iniciar sesión</Text>
+                    <Text style={styles.buttonText}>Enviar correo</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={handleSignup}
-                    style={[styles.button, styles.buttonOutline]}
-                >
-                    <Text style={styles.buttonOutlineText}>Registarse</Text>
-                </TouchableOpacity>
             </View>
 
             <TouchableOpacity
-                onPress={handlePasswordRecovery}
-                style={styles.passwordRecovery}
+                onPress={handleLoginBack}
+                style={styles.loginBack}
             >
-                <Text style={styles.passwordRecoveryText}>¿Olvidaste al contraseña? Recupérala</Text>
+                <Text style={styles.loginBackText}>Volver</Text>
             </TouchableOpacity>
 
             <StatusBar style="auto" />
@@ -112,8 +79,8 @@ function Login() {
     );
 }
 
-// Export login function to be renderer in App.js
-export default Login;
+// Export password recovery function to be renderer in App.js
+export default PasswordRecovery;
 
 const styles = StyleSheet.create({
     container: {
@@ -160,11 +127,11 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 16
     },
-    passwordRecovery: {
-        marginTop: 100,
+    loginBack: {
+        marginTop: 15,
         padding: 15
     },
-    passwordRecoveryText: {
+    loginBackText: {
         color: 'black'
     }
 });

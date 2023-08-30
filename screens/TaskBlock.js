@@ -146,13 +146,13 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         position: 'absolute',
         marginTop: 37,
-        paddingLeft: 180,
+        paddingLeft: 210,
     },
     panel: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'flex-end',
-        paddingRight: 20,
+        paddingRight: 15,
         backgroundColor: 'white',
         shadowColor: 'black',
         shadowOpacity: 0.3,
@@ -166,6 +166,6 @@ const styles = StyleSheet.create({
         marginBottom: 1
     },
     buttonPanelText: {
-        fontSize: 15
+        fontSize: 17
     }
 });
