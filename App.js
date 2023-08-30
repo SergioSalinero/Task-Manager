@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login';
 import Lobby from './screens/TabNavigator';
 import Signup from './screens/Signup';
+import PasswordRecovery from './screens/PasswordRecovery';
 
 // Create stack navigation (react-navigation framework).
 const Stack = createNativeStackNavigator();
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="Lobby" component={Lobby} />
         <Stack.Screen options={{ headerShown: false }} name="Signup" component={Signup} />
+        <Stack.Screen options={{ headerShown: false }} name="PasswordRecovery" component={PasswordRecovery} />
       </Stack.Navigator>
     </NavigationContainer>
   );
